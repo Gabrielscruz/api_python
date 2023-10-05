@@ -24,7 +24,7 @@ def root():
 
 @app.get("/v1/contatos")
 async def fetch_users():
-    query = "SELECT * FROM l_contatos limit 10000"
+
     connection = Tortoise.get_connection("default")
     result = await connection.execute_query(query)
     print(result)
@@ -33,7 +33,7 @@ async def fetch_users():
 
 def init_orm():
     Tortoise.init(config={
-    "connections": {"default": "postgres://rafaelsantos:Wocc#2023#@172.21.0.10:5432/dww_dv_2"},
+
     "apps": {
         "models": {
             "models": ["server"],
